@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Cambiar Color</title>
+	<style type="text/css">
+
+		.principal {
+			border: 1px solid black;
+			margin-bottom: 10px;
+		}
+
+		.contenedor {
+			overflow: hidden;
+		}
+
+		.contenedor div{
+			width: 100px;
+			height: 100px;
+			background-color: #7F0C29;
+			border: 4px solid #CCC114;
+			float: left;
+			margin: 2px; 
+		}
+
+		.controles {
+			border: 1px solid black;
+			padding: 10px;
+		}
+
+	</style>
+
+	<script>
+		window.onload = function(e) {
+
+			var arregloElementos = document.getElementsByClassName("derecha"); //default
+			var color = document.getElementById("color");
+
+			color.onchange = function() {
+				for(var indice in arregloElementos) {
+			    if(!isNaN(indice)) {
+			      arregloElementos[indice].style.background = color.value;
+			    }
+	  		}
+			}
+
+		}
+
+					function cambiarColor(identificador) {
+				arregloElementos = document.getElementsByClassName(identificador);
+			}
+
+	</script>
+</head>
+<body>
+	<p> Seleccione el cuadro al que desea cambiar su color</p>
+	<div class="principal">
+	<div class="contenedor">
+		<div class="derecha" onclick="cambiarColor('derecha')"></div>
+		<div class="centro" onclick="cambiarColor('centro')"></div>
+		<div class="izquierda" onclick="cambiarColor('izquierda')"></div>	  
+	</div>
+		<div class="contenedor">
+		<div class="derecha" onclick="cambiarColor('derecha')"></div>
+		<div class="centro" onclick="cambiarColor('centro')"></div>
+		<div class="izquierda" onclick="cambiarColor('izquierda')"></div>	  
+	</div>
+		<div class="contenedor">
+		<div class="derecha" onclick="cambiarColor('derecha')"></div>
+		<div class="centro" onclick="cambiarColor('centro')"></div>
+		<div class="izquierda" onclick="cambiarColor('izquierda')"></div>	  
+	</div>
+	</div>
+	<div class="controles">
+	 	<label for="color">Seleccione color: </label>
+		<input type="color" id="color">
+	</div>
+
+
+</body>
+</html>
